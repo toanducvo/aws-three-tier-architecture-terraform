@@ -1,10 +1,3 @@
-locals {
-  required_tags = {
-    project     = var.project_name,
-    environment = var.environment,
-  }
-}
-
 # DB - RDS Instance
 resource "aws_db_instance" "main" {
   engine                       = var.engine_name
