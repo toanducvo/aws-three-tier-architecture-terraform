@@ -27,3 +27,8 @@ output "db_security_group" {
   description = "Database Security Group"
   value = aws_security_group.db_security_group.id
 }
+
+output "alb_dns_name" {
+  description = "DNS name of the Application Load Balancer"
+  value = aws_lb.main.dns_name
+}
