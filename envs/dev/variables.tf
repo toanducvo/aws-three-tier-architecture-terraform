@@ -1,19 +1,16 @@
 variable "region" {
-  description = "AWS Region"
-  type        = string
-  default     = "eu-west-2"
+  type    = string
+  default = "eu-west-2"
 }
 
 variable "project_name" {
-  description = "Name of Project"
-  type        = string
-  default     = "three-tier-architecture"
+  type    = string
+  default = "three-tier-architecture"
 }
 
 variable "environment" {
-  description = "Environment Type"
-  type        = string
-  default     = "dev"
+  type    = string
+  default = "dev"
 }
 
 ################################################################################
@@ -222,15 +219,17 @@ variable "app_security_group" {
 ################################################################################
 
 variable "image_id" {
-  description = "Image ID"
+  description = "Image ID to be used for the EC2 Instance"
   type        = string
-  default     = "ami-084e8c05825742534"
+
+  # Amazon Linux 2023 AMI 2023.3.20231218.0 x86_64 HVM kernel-6.1
+  default = "ami-093cb9fb2d34920ad"
 }
 
 variable "instance_type" {
   description = "Type of EC2 instance"
   type        = string
-  default     = "t2.nano"
+  default     = "t3a.micro"
 }
 
 variable "name_prefix" {
@@ -249,12 +248,6 @@ variable "key_name" {
   description = "Name of the Private Key to be used for the EC2 Instance"
   type        = string
   default     = "terraform"
-}
-
-variable "connection_type" {
-  description = "The type of connection used for the EC2 Instance"
-  type        = string
-  default     = "ssh"
 }
 
 variable "connection_user" {
