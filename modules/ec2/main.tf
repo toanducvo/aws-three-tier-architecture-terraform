@@ -5,6 +5,10 @@ resource "aws_launch_template" "main" {
   instance_type          = var.instance_type
   vpc_security_group_ids = [var.app_security_group]
   user_data              = var.user_data
+
+  iam_instance_profile {
+    arn = var.iam_instance_profile_arn
+  }
  
   key_name = var.key_name
 
