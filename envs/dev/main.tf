@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "vpc" {
-  source                    = "./modules/vpc"
+  source                    = "../../modules/vpc"
   project_name              = var.project_name
   environment               = var.environment
   vpc_id                    = module.vpc.vpc_id
@@ -42,7 +42,7 @@ module "vpc" {
 }
 
 module "ec2" {
-  source             = "./modules/ec2"
+  source             = "../../modules/ec2"
   project_name       = var.project_name
   environment        = var.environment
   image_id           = var.image_id
@@ -56,7 +56,7 @@ module "ec2" {
 }
 
 module "rds" {
-  source               = "./modules/rds"
+  source               = "../../modules/rds"
   project_name         = var.project_name
   environment          = var.environment
   engine_name          = var.engine_name
