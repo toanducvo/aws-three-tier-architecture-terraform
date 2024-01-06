@@ -8,7 +8,7 @@ sudo systemctl status amazon-ssm-agent
 sudo systemctl start amazon-ssm-agent
 
 # Install Docker
-sudo amazon-linux-extras install docker -y
+sudo yum install -y docker
 sudo systemctl enable docker --now
 sudo systemctl enable containerd.service --now
 
