@@ -23,6 +23,11 @@ variable "app_security_group" {
   type = string
 }
 
+variable "user_data" {
+  description = "User Data"
+  type        = string
+}
+
 variable "name_prefix" {
   description = "Name of Launch Template"
   type    = string
@@ -33,9 +38,9 @@ variable "key_name" {
   type = string
 }
 
-variable "connection_type" {
-  description = "The type of connection used for the EC2 Instance"
-  type = string
+variable "private_key" {
+  description = "Path to the Private Key to be used for the EC2 Instance"
+  type        = string
 }
 
 variable "connection_user" {

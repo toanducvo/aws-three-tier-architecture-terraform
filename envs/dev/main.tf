@@ -50,9 +50,10 @@ module "ec2" {
   app_security_group = module.vpc.app_security_group
   name_prefix        = var.name_prefix
   key_name           = var.key_name
-  connection_type    = var.connection_type
   connection_user    = var.connection_user
   connection_host    = var.connection_host
+  user_data          = filebase64("${local.base_dir}/scripts/ec2_user_data.sh")
+  private_key        = "${local.base_dir}/${var.key_name}.pem"
 }
 
 module "rds" {
