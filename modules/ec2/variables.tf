@@ -52,3 +52,8 @@ variable "connection_host" {
   description = "Allows connection to the newly created EC2 Instances"
   type = string
 }
+
+variable "iam_instance_profile_arn" {
+  description = "IAM Instance Profile ARN"
+  type        = string
+}

@@ -38,7 +38,12 @@ module "vpc" {
   db_security_group_name    = var.db_security_group_name
   alb_security_group        = module.vpc.alb_security_group
   app_security_group        = var.app_security_group
+}
 
+module "iam" {
+  source       = "../../modules/iam"
+  project_name = var.project_name
+  environment  = var.environment
 }
 
 module "ec2" {
@@ -54,6 +59,7 @@ module "ec2" {
   connection_host    = var.connection_host
   user_data          = filebase64("${local.base_dir}/scripts/ec2_user_data.sh")
   private_key        = "${local.base_dir}/${var.key_name}.pem"
+  iam_instance_profile_arn = module.iam.ssm_instance_profile_arn
 }
 
 module "rds" {
